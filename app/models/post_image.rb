@@ -5,6 +5,9 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :shop_name, presence: true
+  validates :image, presence: true
+
   def get_image
     # もし、画像がattached（添付）されていない場合は・・・
     unless image.attached?
